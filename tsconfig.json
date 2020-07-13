@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@happyorg/ui": ["libs/ui/src/index.ts"],
+      "@happyorg/feature-main": ["libs/feature-main/src/index.ts"],
+      "@happyorg/feature-about": ["libs/feature-about/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
