@@ -33,14 +33,18 @@
     },
     "shop-e2e": {
       "tags": [],
-      "implicitDependencies": ["shop"]
+      "implicitDependencies": [
+        "shop"
+      ]
     },
     "ui": {
       "tags": []
     },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["ui"]
+      "implicitDependencies": [
+        "ui"
+      ]
     },
     "feature-main": {
       "tags": []
@@ -53,7 +57,18 @@
     },
     "admin-e2e": {
       "tags": [],
-      "implicitDependencies": ["admin"]
+      "implicitDependencies": [
+        "admin"
+      ]
+    },
+    "stencil-lib": {
+      "tags": []
+    },
+    "stencil-lib-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "stencil-lib"
+      ]
     }
   }
 }

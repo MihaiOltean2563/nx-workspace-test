@@ -21,8 +21,13 @@
             "polyfills": "apps/shop/src/polyfills.ts",
             "tsConfig": "apps/shop/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/shop/src/favicon.ico", "apps/shop/src/assets"],
-            "styles": ["apps/shop/src/styles.less"],
+            "assets": [
+              "apps/shop/src/favicon.ico",
+              "apps/shop/src/assets"
+            ],
+            "styles": [
+              "apps/shop/src/styles.less"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +85,10 @@
               "apps/shop/tsconfig.app.json",
               "apps/shop/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/shop/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/shop/**/*"
+            ]
           }
         },
         "test": {
@@ -115,8 +123,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/shop-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/shop-e2e/**/*"]
+            "tsConfig": [
+              "apps/shop-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/shop-e2e/**/*"
+            ]
           }
         }
       }
@@ -134,7 +147,10 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/**/*"
+            ]
           }
         },
         "test": {
@@ -204,8 +220,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/ui-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ui-e2e/**/*"]
+            "tsConfig": [
+              "apps/ui-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui-e2e/**/*"
+            ]
           }
         }
       }
@@ -223,7 +244,10 @@
               "libs/feature-main/tsconfig.lib.json",
               "libs/feature-main/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/feature-main/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature-main/**/*"
+            ]
           }
         },
         "test": {
@@ -255,7 +279,10 @@
               "libs/feature-about/tsconfig.lib.json",
               "libs/feature-about/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/feature-about/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature-about/**/*"
+            ]
           }
         },
         "test": {
@@ -294,8 +321,13 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-            "styles": ["apps/admin/src/styles.scss"],
+            "assets": [
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/assets"
+            ],
+            "styles": [
+              "apps/admin/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -353,7 +385,10 @@
               "apps/admin/tsconfig.app.json",
               "apps/admin/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/admin/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/admin/**/*"
+            ]
           }
         },
         "test": {
@@ -388,8 +423,118 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/admin-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/admin-e2e/**/*"]
+            "tsConfig": [
+              "apps/admin-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/admin-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "stencil-lib": {
+      "projectType": "library",
+      "schematics": {
+        "@nxext/stencil:component": {
+          "style": "scss",
+          "storybook": true
+        }
+      },
+      "root": "libs/stencil-lib",
+      "sourceRoot": "libs/stencil-lib/src",
+      "architect": {
+        "build": {
+          "builder": "@nxext/stencil:build",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/stencil-lib/stencil.config.ts"
+          }
+        },
+        "test": {
+          "builder": "@nxext/stencil:test",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/stencil-lib/stencil.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@nxext/stencil:e2e",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/stencil-lib/stencil.config.ts"
+          }
+        },
+        "serve": {
+          "builder": "@nxext/stencil:build",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/stencil-lib/stencil.config.ts",
+            "serve": true,
+            "watch": true
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/html",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/stencil-lib/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/html",
+            "outputPath": "dist/storybook/stencil-lib",
+            "config": {
+              "configFolder": "libs/stencil-lib/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "stencil-lib-e2e": {
+      "root": "apps/stencil-lib-e2e",
+      "sourceRoot": "apps/stencil-lib-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/stencil-lib-e2e/cypress.json",
+            "tsConfig": "apps/stencil-lib-e2e/tsconfig.e2e.json",
+            "devServerTarget": "stencil-lib:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "stencil-lib:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/stencil-lib-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/stencil-lib-e2e/**/*"
+            ]
           }
         }
       }
